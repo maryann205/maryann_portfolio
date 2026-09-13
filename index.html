@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mary Ann Thomas | BCA Student & Software Developer Portfolio</title>
+  <meta name="description" content="Personal Portfolio of Mary Ann Thomas - Third-year BCA student from Kerala specializing in Software Development, Chatbot Development, Web Technologies, AI & ML." />
+  <meta name="keywords" content="Mary Ann Thomas, BCA Student, Software Developer, Chatbot Developer, Python, PHP Full-Stack, AI, ML, Power BI, Kerala, Ernakulam, Portfolio" />
+  <meta name="author" content="Mary Ann Thomas" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mary Ann Thomas | Portfolio" />
+  <meta property="og:description" content="BCA Student | Software & Chatbot Development | Web Technologies | AI & ML" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HTML5 Canvas Background -->
+  <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.85;"></canvas>
+
+  <!-- Sticky Navbar -->
+  <header id="navbar-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: all 0.3s ease; padding: 1.25rem 0;">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <!-- Logo -->
+      <a href="#home" style="display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: #ffffff;">
+        <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--maroon-gradient); display: flex; align-items: center; justify-content: center; color: #ffffff; box-shadow: 0 4px 15px rgba(139, 21, 56, 0.4);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        </div>
+        <span>MAT<span style="color: var(--maroon-bright)">.</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav" style="display: flex; align-items: center; gap: 1.8rem;">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#focus-areas" class="nav-link">Focus Areas</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <a href="https://github.com/maryann205/mary_ann_portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.45rem;" title="GitHub Repository">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="#contact" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;">Connect</a>
+        <button id="mobile-menu-toggle" class="mobile-toggle" style="display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); color: var(--text-primary); width: 40px; height: 40px; border-radius: 10px; align-items: center; justify-content: center; cursor: pointer;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" style="display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(10, 12, 16, 0.96); backdrop-filter: blur(20px); z-index: 99; flex-direction: column; padding: 2rem 1.5rem; gap: 1rem; border-top: 1px solid var(--glass-border);">
+      <a href="#home" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Home</a>
+      <a href="#about" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">About</a>
+      <a href="#focus-areas" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Focus Areas</a>
+      <a href="#skills" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Skills</a>
+      <a href="#experience" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Experience</a>
+      <a href="#certifications" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Certifications</a>
+      <a href="#education" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Education</a>
+      <a href="#work" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Work</a>
+      <a href="#resume" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 700; color: var(--maroon-bright); padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">📄 Resume</a>
+      <a href="#contact" onclick="closeMobileMenu()" style="font-size: 1.15rem; font-weight: 600; color: #ffffff; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">Contact</a>
+      <a href="https://github.com/maryann205/mary_ann_portfolio" target="_blank" rel="noopener noreferrer" style="font-size: 1.15rem; font-weight: 600; color: var(--text-secondary); padding: 0.8rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 0.6rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        <span>GitHub Repository</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" style="min-height: 100vh; display: flex; align-items: center; padding-top: 6rem; padding-bottom: 4rem; position: relative; z-index: 2; background: radial-gradient(ellipse at 30% 20%, rgba(90, 16, 30, 0.35) 0%, transparent 65%), radial-gradient(ellipse at 70% 80%, rgba(122, 23, 42, 0.25) 0%, transparent 65%);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
+        <div>
+          <div class="section-tag" style="margin-bottom: 1.25rem;">✨ Available for Internships</div>
+          <h1 style="font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem;">
+            MARY ANN <br />
+            <span style="background: var(--maroon-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">THOMAS</span>
+          </h1>
+          <h2 style="font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 600; color: var(--text-maroon); margin-bottom: 1.25rem; font-family: var(--font-mono);">
+            BCA Student | Software & Chatbot Development | Web Technologies | AI & ML
+          </h2>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 2rem; max-width: 620px;">
+            "Third-year BCA student with foundational knowledge of software development, web technologies, Python, PHP full-stack development, Artificial Intelligence and Machine Learning."
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;">
+            <a href="#work" class="btn btn-primary"><span>View My Work</span> ↓</a>
+            <a href="#contact" class="btn btn-secondary">✉ Contact Me</a>
+            <a href="#resume" class="btn btn-outline" title="Jump to Resume Section">📄 Resume</a>
+          </div>
+
+          <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border);">
+            <a href="https://linkedin.com/in/mary-ann-thomas" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <span>LinkedIn Profile</span>
+            </a>
+            <a href="https://github.com/maryann205/mary_ann_portfolio" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </div>
+              <span>GitHub Portfolio</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+              📍 <span>Angamaly, Ernakulam, Kerala</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+          <div class="glass-card animate-float" style="max-width: 420px; width: 100%; padding: 2rem; text-align: center; border: 1px solid var(--glass-border-hover); box-shadow: 0 20px 50px rgba(0,0,0,0.75), 0 0 35px rgba(143, 36, 56, 0.35);">
+            <div style="position: relative; width: 180px; height: 180px; margin: 0 auto 1.5rem auto; border-radius: 50%; padding: 4px; background: var(--maroon-gradient); box-shadow: 0 0 30px rgba(196, 43, 92, 0.4);">
+              <img src="assets/images/avatar.jpg" alt="Mary Ann Thomas" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" onerror="this.src='public/avatar.jpg'" />
+            </div>
+            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem;">Mary Ann Thomas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-maroon); font-family: var(--font-mono); margin-bottom: 1.5rem;">DiST BCA Student • Batch 2026</p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; text-align: left;">
+              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 0.75rem 1rem; border-radius: 12px;">
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Education</div>
+                <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-top: 0.2rem;">BCA 3rd Year</div>
+              </div>
+              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 0.75rem 1rem; border-radius: 12px;">
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Internship</div>
+                <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-top: 0.2rem;">Risknox.ai</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME SECTION -->
+  <section id="about" class="section" style="background: rgba(12, 15, 22, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">👤 About Me</div>
+        <h2 class="section-title">Background & <span>Focus Areas</span></h2>
+        <p class="section-description">Third-year Bachelor of Computer Applications (BCA) student with a foundational base in software engineering, web tech, and chatbot workflows.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+        <div class="glass-card">
+          <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem;">Personal Profile</h3>
+          <p style="font-size: 1.02rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 1.2rem;">
+            I am a third-year Bachelor of Computer Applications (BCA) student passionate about building clean, efficient, and user-centric software solutions.
+          </p>
+          <p style="font-size: 1.02rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: 1.2rem;">
+            Through my internship as a Software & Chatbot Development Intern at Risknox.ai and an Industry Immersion Program in Power BI at NeST Digital Academy, I have gained practical exposure to building chatbot solutions, integrating APIs, database workflows, and analyzing data visually.
+          </p>
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border);">
+            <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem; text-transform: uppercase;">Core Areas of Interest</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+              <span class="badge badge-maroon">Software Development</span>
+              <span class="badge badge-maroon">Web Development</span>
+              <span class="badge badge-maroon">Artificial Intelligence</span>
+              <span class="badge badge-maroon">Machine Learning</span>
+              <span class="badge badge-maroon">Chatbot Development</span>
+              <span class="badge badge-maroon">Data Visualization</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="glass-card" style="border: 1px solid var(--glass-border-hover);">
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem;">Academic Metadata Card</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.1rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">🎓</div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Education</div>
+                  <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">BCA</div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">🎯</div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Current Academic Level</div>
+                  <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">Third Year</div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">📍</div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Location</div>
+                  <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">Angamaly, Ernakulam, Kerala</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 1.5rem; display: flex; gap: 1.25rem; align-items: center;">
+            <div style="width: 46px; height: 46px; border-radius: 12px; background: var(--maroon-gradient); display: flex; align-items: center; justify-content: center; color: #ffffff; flex-shrink: 0; font-size: 1.2rem;">🏢</div>
+            <div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Startup Internship Experience</div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem;">Risknox.ai — Chatbot & Software Development</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I LIKE TO BUILD (FOCUS AREAS) -->
+  <section id="focus-areas" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">⚡ Development Focus</div>
+        <h2 class="section-title">What I <span>Like to Build</span></h2>
+        <p class="section-description">Key domains of technology where I have practical exposure, core foundational knowledge, and an active interest.</p>
+      </div>
+      <div id="focus-areas-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem;"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section" style="background: rgba(12, 15, 22, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">💻 Technical Capabilities</div>
+        <h2 class="section-title">Skills & <span>Tooling</span></h2>
+        <p class="section-description">Categorized overview of programming languages, web technologies, AI fundamentals, and creative tools.</p>
+        <div id="skills-tabs" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem;"></div>
+      </div>
+      <div id="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;"></div>
+    </div>
+  </section>
+
+  <!-- INTERNSHIP EXPERIENCE SECTION -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">💼 Practical Exposure</div>
+        <h2 class="section-title">Internship <span>Experience</span></h2>
+        <p class="section-description">Industry exposure gained working with software development teams on real-world chatbot and web technology solutions.</p>
+      </div>
+      <div id="experience-container" style="max-width: 850px; margin: 0 auto;"></div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS SECTION -->
+  <section id="certifications" class="section" style="background: rgba(12, 15, 22, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">🏆 Verified Learning</div>
+        <h2 class="section-title">Certifications & <span>Training</span></h2>
+        <p class="section-description">Industry and skill certifications completed in full-stack web development, generative AI, data visualization, and software development.</p>
+      </div>
+      <div id="certifications-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;"></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">🎓 Academic Background</div>
+        <h2 class="section-title">Education <span>Timeline</span></h2>
+        <p class="section-description">Academic qualifications and institution history from secondary education through current BCA undergraduate studies.</p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; position: relative;">
+        <div style="position: absolute; top: 20px; bottom: 20px; left: 24px; width: 2px; background: linear-gradient(180deg, var(--maroon-bright) 0%, rgba(139, 21, 56, 0.2) 100%); z-index: 1;"></div>
+        <div id="education-timeline" style="display: flex; flex-direction: column; gap: 2rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT SKILLS & LANGUAGES -->
+  <section class="section" style="background: rgba(12, 15, 22, 0.4);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+        <div class="glass-card">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem;">Interpersonal & Soft Skills</h3>
+          <div id="soft-skills-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem;"></div>
+        </div>
+        <div class="glass-card">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem;">Languages</h3>
+          <div id="languages-list" style="display: flex; flex-direction: column; gap: 1.2rem;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK SHOWCASE -->
+  <section id="work" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">📁 Portfolio Showcase</div>
+        <h2 class="section-title">My <span>Work & Projects</span></h2>
+        <p class="section-description">Upcoming software projects, chatbot implementations, and data visualization case studies ready for deployment.</p>
+      </div>
+      <div id="work-showcase-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;"></div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="section" style="background: rgba(12, 15, 22, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">⭐ Key Attributes</div>
+        <h2 class="section-title">Strengths & <span>Value Add</span></h2>
+        <p class="section-description">Core personal strengths and professional characteristics supported by academic background and internship experience.</p>
+      </div>
+      <div id="highlights-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;"></div>
+    </div>
+  </section>
+
+  <!-- RESUME SECTION -->
+  <section id="resume" class="section resume-section">
+    <div class="container">
+      <div class="resume-card">
+        <div class="resume-icon-badge">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+
+        <div class="section-tag" style="margin-bottom: 1rem;">📄 Official Document</div>
+
+        <div class="resume-heading-wrap">
+          <h2 class="section-title" style="margin-bottom: 0; display: inline-flex; align-items: center; gap: 0.65rem;">
+            <svg class="resume-heading-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <line x1="10" y1="9" x2="8" y2="9"></line>
+            </svg>
+            <span>Resume</span>
+          </h2>
+        </div>
+
+        <p class="resume-description">
+          View or download my resume to learn more about my education, skills, internship experience, certifications, and technical interests.
+        </p>
+
+        <div class="resume-buttons-group">
+          <a
+            id="view-resume-btn"
+            href="assets/resume/Mary_Ann_Thomas_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="resume-btn resume-btn-primary"
+            title="Open resume in a new tab"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span>View Resume</span>
+          </a>
+
+          <a
+            id="download-resume-btn"
+            href="assets/resume/Mary_Ann_Thomas_Resume.pdf"
+            download="Mary_Ann_Thomas_Resume.pdf"
+            class="resume-btn resume-btn-secondary"
+            title="Download resume PDF"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume</span>
+          </a>
+        </div>
+
+        <div class="resume-file-info">
+          <span>PDF Format</span> • <span>Updated September 2026</span> • <span>Mary_Ann_Thomas_Resume.pdf</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">✉ Get In Touch</div>
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <p class="section-description">Open for internship opportunities, software development projects, technical inquiries, and professional networking.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
+        <div class="glass-card">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.25rem;">Direct Contact Details</h3>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <a href="mailto:maryannthomas0508@gmail.com" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.025); border: 1px solid var(--glass-border);">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">✉</div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Email Address</div>
+                <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">maryannthomas0508@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="tel:+919562720198" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.025); border: 1px solid var(--glass-border);">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">📞</div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Phone Number</div>
+                <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">+91 9562720198</div>
+              </div>
+            </a>
+
+            <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.025); border: 1px solid var(--glass-border);">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">📍</div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Location</div>
+                <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">Angamaly, Ernakulam, Kerala</div>
+              </div>
+            </div>
+
+            <a href="https://linkedin.com/in/mary-ann-thomas" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.025); border: 1px solid var(--glass-border);">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">💼</div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">LinkedIn Network</div>
+                <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">Connect on LinkedIn</div>
+              </div>
+            </a>
+
+            <a href="https://github.com/maryann205/mary_ann_portfolio" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.025); border: 1px solid var(--glass-border);">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: var(--maroon-tint); display: flex; align-items: center; justify-content: center; color: var(--maroon-bright);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">GitHub Repository</div>
+                <div style="font-size: 0.98rem; font-weight: 600; color: var(--text-primary);">github.com/maryann205/mary_ann_portfolio</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem;">Send a Direct Message</h3>
+          <div id="form-feedback" style="display: none;"></div>
+          <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.2rem;">
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Your Name *</label>
+              <input id="form-name" type="text" placeholder="e.g. Alex Sharma" style="width: 100%; padding: 0.85rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); color: var(--text-primary); font-size: 0.95rem; outline: none;" required />
+            </div>
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Your Email *</label>
+              <input id="form-email" type="email" placeholder="e.g. alex@example.com" style="width: 100%; padding: 0.85rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); color: var(--text-primary); font-size: 0.95rem; outline: none;" required />
+            </div>
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Subject</label>
+              <input id="form-subject" type="text" placeholder="e.g. Internship Query / Software Project" style="width: 100%; padding: 0.85rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); color: var(--text-primary); font-size: 0.95rem; outline: none;" />
+            </div>
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Message *</label>
+              <textarea id="form-message" rows="4" placeholder="Write your message here..." style="width: 100%; padding: 0.85rem 1rem; border-radius: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); color: var(--text-primary); font-size: 0.95rem; outline: none; resize: vertical;" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Send Message ✈</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: rgba(5, 2, 4, 0.98); border-top: 1px solid var(--glass-border); padding: 3.5rem 0 2rem 0; position: relative; z-index: 2;">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--glass-border);">
+        <div>
+          <div style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.6rem;">
+            MARY ANN THOMAS<span style="color: var(--maroon-bright)">.</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 400px;">
+            Third-year BCA Student • Software & Chatbot Development • Web Technologies • AI & ML
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <a href="https://github.com/maryann205/mary_ann_portfolio" target="_blank" rel="noopener noreferrer" style="width: 40px; height: 40px; border-radius: 10px; background: var(--maroon-tint); border: 1px solid rgba(196, 43, 92, 0.3); color: var(--maroon-bright); display: flex; align-items: center; justify-content: center;" title="GitHub Repository">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <button onclick="scrollToTop()" aria-label="Back to top" style="width: 40px; height: 40px; border-radius: 10px; background: var(--maroon-tint); border: 1px solid rgba(196, 43, 92, 0.3); color: var(--maroon-bright); cursor: pointer; font-size: 1.2rem;">↑</button>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+        <div>© 2026 Mary Ann Thomas. All Rights Reserved.</div>
+        <div>Built with precision & passion</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CERTIFICATE MODAL -->
+  <div id="cert-modal" class="modal-overlay" onclick="closeCertModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeCertModal()">✕</button>
+      <div style="text-align: center; margin-bottom: 1.75rem;">
+        <span class="badge badge-maroon" style="margin-bottom: 0.75rem;">Verified Credential</span>
+        <h3 id="modal-cert-title" style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;"></h3>
+        <p id="modal-cert-org" style="font-size: 1.05rem; font-weight: 600; color: var(--text-maroon);"></p>
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.75rem;">
+        <p id="modal-cert-desc" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;"></p>
+      </div>
+      <div style="border: 2px dashed rgba(196, 43, 92, 0.3); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; background: rgba(139, 21, 56, 0.05); margin-bottom: 1.75rem;">
+        ✨ <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-top: 0.4rem;">Certificate Document Viewer</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Document preview ready. Upload PDF or image link in portfolioData.js</div>
+      </div>
+      <button class="btn btn-secondary" onclick="closeCertModal()" style="width: 100%;">Close Preview</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="portfolioData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
